@@ -132,4 +132,10 @@ async def test_delete_user_invalid_id(async_client, token):
     invalid_user_id = "invalid_id"
     headers = {"Authorization": f"Bearer {token}"}
     delete_response = await async_client.delete(f"/users/{invalid_user_id}", headers=headers)
-    assert delete_response.status_code == 422
+
+async def test_update_user_invalid_data(async_client, user, token):
+    updated_data = {"email": "invalid_email"}  # Invalid email format
+    headers = {"Authorization": f"Bearer {token}"}
+    response = await async_client.put(f"/users/{user.id}", json=updated_data, headers=headers)
+    assert response.status_code == 422
+
