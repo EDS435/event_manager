@@ -150,3 +150,6 @@ async def test_delete_user_missing_token(async_client, user):
     # Asserts
     assert response.status_code == 401
     assert "Not authenticated" in response.json()["detail"]
+    
+
+
