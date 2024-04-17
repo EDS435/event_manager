@@ -116,3 +116,10 @@ async def test_delete_user_does_not_exist(async_client, token):
     delete_response = await async_client.delete(f"/users/{non_existent_user_id}", headers=headers)
     assert delete_response.status_code == 404
 
+@pytest.mark.asyncio
+async def test_retrieve_non_existent_user(async_client, token):
+    non_existent_user_id = "00000000-0000-0000-0000-000000000000"  # Non-existent user ID
+    headers = {"Authorization": f"Bearer {token}"}
+    response = await async_client.get(f"/users/{non_existent_user_id}", headers=headers)
+    assert response.status_code == 404
+    assert "User not found" in response.json()["detail"]
