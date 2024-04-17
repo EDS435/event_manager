@@ -169,3 +169,12 @@ async def test_delete_user_missing_token(async_client, user):
     assert "Not authenticated" in response.json()["detail"]
    
 
+@pytest.mark.asyncio
+async def test_create_user_weak_password(async_client):
+    user_data = {
+        "username": "testuser",
+        "email": "user@example.com",
+        "password": "password",  # Weak password
+    }
+    response = await async_client.post("/register/", json=user_data)
+    assert response.status_code == 422
