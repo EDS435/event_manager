@@ -116,3 +116,12 @@ async def test_delete_user_does_not_exist(async_client, token):
     delete_response = await async_client.delete(f"/users/{non_existent_user_id}", headers=headers)
     assert delete_response.status_code == 404
 
+@pytest.mark.asyncio
+async def test_create_user_weak_password(async_client):
+    user_data = {
+        "username": "testuser",
+        "email": "user@example.com",
+        "password": "password",  # Weak password
+    }
+    response = await async_client.post("/register/", json=user_data)
+    assert response.status_code == 422
