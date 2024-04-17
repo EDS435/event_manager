@@ -116,6 +116,7 @@ async def test_delete_user_does_not_exist(async_client, token):
     delete_response = await async_client.delete(f"/users/{non_existent_user_id}", headers=headers)
     assert delete_response.status_code == 404
     
+
 @pytest.mark.asyncio   
 async def test_update_user_invalid_data(async_client, user, token):
     updated_data = {"email": "invalid_email"}  # Invalid email format
@@ -150,6 +151,4 @@ async def test_delete_user_missing_token(async_client, user):
     # Asserts
     assert response.status_code == 401
     assert "Not authenticated" in response.json()["detail"]
-    
-
-
+   
