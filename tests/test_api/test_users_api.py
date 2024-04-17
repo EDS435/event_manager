@@ -151,4 +151,21 @@ async def test_delete_user_missing_token(async_client, user):
     # Asserts
     assert response.status_code == 401
     assert "Not authenticated" in response.json()["detail"]
+
+@pytest.mark.asyncio
+async def test_retrieve_non_existent_user(async_client, token):
+    non_existent_user_id = "00000000-0000-0000-0000-000000000000"  # Non-existent user ID
+    headers = {"Authorization": f"Bearer {token}"}
+    response = await async_client.get(f"/users/{non_existent_user_id}", headers=headers)
+    assert response.status_code == 404
+    assert "User not found" in response.json()["detail"]
+
+@pytest.mark.asyncio
+async def test_delete_user_missing_token(async_client, user):
+    # Attempt to delete a user without providing a token
+    response = await async_client.delete(f"/users/{user.id}")
+    # Asserts
+    assert response.status_code == 401
+    assert "Not authenticated" in response.json()["detail"]
    
+
