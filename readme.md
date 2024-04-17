@@ -60,9 +60,20 @@ To complete this assignment, submit the following:
   - All issues should be merged into the main branch, following the Git workflow and best practices.
 
 2. **Updated README**: Replace the existing README with:
-  - Links to the closed issues, providing easy access to your work.
-  - Link to project image deployed to Dockerhub.
-  - A 2-3 paragraph reflection on what you learned from this assignment, focusing on both technical skills and collaborative processes. Reflect on the challenges you faced, the solutions you implemented, and the insights you gained. This reflection helps solidify your learning and provides valuable feedback for improving the assignment in the future.
+
+    1. https://github.com/EDS435/event_manager/issues/14
+    2. https://github.com/EDS435/event_manager/issues/12
+    3. https://github.com/EDS435/event_manager/issues/10
+    4. https://github.com/EDS435/event_manager/issues/8
+    5. https://github.com/EDS435/event_manager/issues/6
+    6. https://github.com/EDS435/event_manager/issues/4 (demo test #1)
+    7. https://github.com/EDS435/event_manager/issues/1 (demo test #2)
+
+  ![alt text](<Screenshot 2024-04-16 233050.png>)
+
+  ![alt text](<Screenshot 2024-04-16 233123.png>)
+
+  ![alt text](<Screenshot 2024-04-16 233146.png>)
 
 ## Grading Rubric
 
